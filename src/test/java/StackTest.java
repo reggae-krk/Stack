@@ -56,4 +56,13 @@ class StackTest {
 
         assertEquals(5, stack.getMaxSize());
     }
+
+    @Test
+    void testSpaceLeft() {
+        Stack<String> stack = createStack();
+        stack.push("test0");
+        stack.push("test1");
+
+        assertEquals(3, stack.spaceLeft());
+    }
 }
