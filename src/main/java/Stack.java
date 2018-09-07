@@ -23,6 +23,7 @@ public class Stack<T> {
             int indexToPush = this.maxSize - spaceLeft();
             this.arr[indexToPush] = obj;
         }
+        else throw new StackOverflowError("Stack is full");
     }
 
     public T pop() {
