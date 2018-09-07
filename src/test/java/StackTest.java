@@ -16,4 +16,11 @@ class StackTest {
         assertNotNull(newStack);
     }
 
+    @Test
+    void testPush() {
+        Stack<String> stack = createStack();
+        stack.push("test");
+
+        assertEquals("test", stack.pop());
+    }
 }

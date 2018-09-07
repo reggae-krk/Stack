@@ -21,7 +21,7 @@ public class Stack<T> {
     }
 
     public void push(T obj) {
-        if(spaceLeft() < 0) {
+        if(spaceLeft() > 0) {
             int indexToPush = this.maxSize - spaceLeft();
             this.arr[indexToPush] = obj;
         }
@@ -30,7 +30,7 @@ public class Stack<T> {
 
     public T pop() {
         int indexToPop = this.maxSize - spaceLeft() - 1;
-        if(indexToPop < 1) throw new EmptyStackException("Stack is empty");
+        if(indexToPop < 0) throw new EmptyStackException("Stack is empty");
         T popElement = arr[indexToPop];
         this.arr[indexToPop] = null;
         return popElement;
