@@ -1,3 +1,5 @@
+import CustomExceptions.EmptyStackException;
+
 import java.lang.reflect.Array;
 
 public class Stack<T> {
@@ -28,6 +30,7 @@ public class Stack<T> {
 
     public T pop() {
         int indexToPop = this.maxSize - spaceLeft() - 1;
+        if(indexToPop < 1) throw new EmptyStackException("Stack is empty");
         T popElement = arr[indexToPop];
         this.arr[indexToPop] = null;
         return popElement;
