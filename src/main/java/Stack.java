@@ -37,4 +37,8 @@ public class Stack<T> {
         T peekElement = arr[indexToPeek];
         return peekElement;
     }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
 }
