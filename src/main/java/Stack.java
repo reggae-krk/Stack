@@ -24,4 +24,11 @@ public class Stack<T> {
             this.arr[indexToPush] = obj;
         }
     }
+
+    public T pop() {
+        int indexToPop = this.maxSize - spaceLeft() - 1;
+        T popElement = arr[indexToPop];
+        this.arr[indexToPop] = null;
+        return popElement;
+    }
 }
