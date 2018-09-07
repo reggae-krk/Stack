@@ -26,6 +26,18 @@ class StackTest {
     }
 
     @Test
+    void testPushWhenStackIsFull() {
+        Stack<String> stack = createStack();
+        stack.push("test0");
+        stack.push("test1");
+        stack.push("test2");
+        stack.push("test3");
+        stack.push("test4");
+
+        assertThrows(StackOverflowError.class, () -> stack.push("full"));
+    }
+
+    @Test
     void testPop() {
         Stack<String> stack = createStack();
         stack.push("test0");
