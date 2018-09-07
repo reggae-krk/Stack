@@ -49,4 +49,11 @@ class StackTest {
 
         assertEquals("test0", stack.peek());
     }
+
+    @Test
+    void testGetMaxSize() {
+        Stack<String> stack = createStack();
+
+        assertEquals(5, stack.getMaxSize());
+    }
 }
