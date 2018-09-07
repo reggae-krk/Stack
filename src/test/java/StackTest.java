@@ -7,6 +7,8 @@ class StackTest {
 
     private Stack<String> createStack() {
         Stack<String> stack = new Stack<String>(String.class, 5);
+        stack.push("test0");
+        stack.push("test1");
         return stack;
     }
 
@@ -20,16 +22,13 @@ class StackTest {
     @Test
     void testPush() {
         Stack<String> stack = createStack();
-        stack.push("test");
 
-        assertEquals("test", stack.pop());
+        assertEquals("test1", stack.pop());
     }
 
     @Test
     void testPushWhenStackIsFull() {
         Stack<String> stack = createStack();
-        stack.push("test0");
-        stack.push("test1");
         stack.push("test2");
         stack.push("test3");
         stack.push("test4");
@@ -40,8 +39,6 @@ class StackTest {
     @Test
     void testPop() {
         Stack<String> stack = createStack();
-        stack.push("test0");
-        stack.push("test1");
 
         assertEquals("test1", stack.pop());
         assertEquals("test0", stack.pop());
@@ -49,7 +46,7 @@ class StackTest {
 
     @Test
     void testPopWhenStackIsEmpty() {
-        Stack<String> stack = createStack();
+        Stack<String> stack = new Stack<String>(String.class, 5);
 
         assertThrows(EmptyStackException.class, () -> stack.pop());
     }
@@ -57,9 +54,8 @@ class StackTest {
     @Test
     void testPeek() {
         Stack<String> stack = createStack();
-        stack.push("test0");
 
-        assertEquals("test0", stack.peek());
+        assertEquals("test1", stack.peek());
     }
 
     @Test
@@ -72,8 +68,6 @@ class StackTest {
     @Test
     void testSpaceLeft() {
         Stack<String> stack = createStack();
-        stack.push("test0");
-        stack.push("test1");
 
         assertEquals(3, stack.spaceLeft());
     }
