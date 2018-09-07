@@ -15,4 +15,11 @@ public class Stack<T> {
         }
         return maxSize - counter;
     }
+
+    public void push(T obj) {
+        if(spaceLeft() < 0) {
+            int indexToPush = this.maxSize - spaceLeft();
+            this.arr[indexToPush] = obj;
+        }
+    }
 }
