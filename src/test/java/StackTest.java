@@ -1,3 +1,4 @@
+import CustomExceptions.EmptyStackException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,5 +33,12 @@ class StackTest {
 
         assertEquals("test1", stack.pop());
         assertEquals("test0", stack.pop());
+    }
+
+    @Test
+    void testPopWhenStackIsEmpty() {
+        final Stack<String> stack = createStack();
+
+        assertThrows(EmptyStackException.class, () -> stack.pop());
     }
 }
