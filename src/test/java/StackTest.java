@@ -37,8 +37,16 @@ class StackTest {
 
     @Test
     void testPopWhenStackIsEmpty() {
-        final Stack<String> stack = createStack();
+        Stack<String> stack = createStack();
 
         assertThrows(EmptyStackException.class, () -> stack.pop());
+    }
+
+    @Test
+    void testPeek() {
+        Stack<String> stack = createStack();
+        stack.push("test0");
+
+        assertEquals("test0", stack.peek());
     }
 }
