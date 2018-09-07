@@ -31,4 +31,10 @@ public class Stack<T> {
         this.arr[indexToPop] = null;
         return popElement;
     }
+
+    public T peek() {
+        int indexToPeek = this.maxSize - spaceLeft() - 1;
+        T peekElement = arr[indexToPeek];
+        return peekElement;
+    }
 }
