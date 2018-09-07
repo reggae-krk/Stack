@@ -23,4 +23,14 @@ class StackTest {
 
         assertEquals("test", stack.pop());
     }
+
+    @Test
+    void testPop() {
+        Stack<String> stack = createStack();
+        stack.push("test0");
+        stack.push("test1");
+
+        assertEquals("test1", stack.pop());
+        assertEquals("test0", stack.pop());
+    }
 }
