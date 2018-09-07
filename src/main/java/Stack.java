@@ -1,11 +1,13 @@
+import java.lang.reflect.Array;
+
 public class Stack<T> {
 
-    int maxSize;
-    Object[] arr;
+    private final int maxSize;
+    private final T[] arr;
 
-    public Stack(int maxSize) {
+    public Stack(Class<T> type, int maxSize) {
         this.maxSize = maxSize;
-        this.arr = new Object[maxSize];
+        this.arr = (T[]) Array.newInstance(type, maxSize);
     }
 
     public int spaceLeft() {
